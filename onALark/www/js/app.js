@@ -36,7 +36,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url: '/intro',
     templateUrl: 'templates/intro.html',
     controller: 'IntroCtrl'
-  })
+  }).state('survey', {
+      url: '/survey/:pageid',
+      templateUrl: 'templates/survey.html',
+      controller: 'SurveyCtrl'
+    })
 
   // Each tab has its own nav history stack:
 

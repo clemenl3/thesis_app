@@ -1,5 +1,5 @@
 angular.module('starter.directives', [])
-.directive('swipeview', function($timeout) {
+.directive('swipeview', function($timeout, $compile, $state) {
   return {
     template: "	<ul id=\"navdots\"></ul>",
     link: function(scope, element, attrs) {
@@ -26,10 +26,12 @@ angular.module('starter.directives', [])
           {
             width: 300,
             height: 213,
-            desc: 'Let\'s begin'
+            desc: 'Let\'s begin <br/><button ui-sref="survey({pageid: 1})" class="beginbutton">&#x203a</button>'
           },
 
       	];
+
+
       gallery = new SwipeView("#wrapper", { numberOfPages: slides.length});
       var navdots = document.querySelector("#navdots");
       for(i=0; i<4; i++) {
@@ -68,6 +70,12 @@ angular.module('starter.directives', [])
 
         }
       	document.querySelector("#navdots").children[gallery.pageIndex % 4].className = 'selected';
+        var beginButton = document.querySelector(".beginbutton");
+        if(beginButton) {
+          $(beginButton).on("click", function(){
+            $state.go("survey");
+          });
+        }
       });
 
     }
