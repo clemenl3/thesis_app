@@ -18,5 +18,24 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SurveyCtrl', function($scope, $stateParams) {
+  $scope.buttons = [
+    [
+      {name: "Breakfast", value: false},
+      {name: "Coffee", value: false},
+      {name: "Lunch",value: false},
+      {name: "Fast Food",value: false},
+      {name: "Dinner",value: false},
+      {name: "Drinks",value: false}
+    ],
+    [
+      {name: "Vegitarian",value: false},
+      {name: "Vegan",value: false},
+      {name: "Gluten-Free",value: false}
+    ]
+  ]
+
+  $scope.selectButton=function(button){
+    button.value = !button.value;
+  }
 
 });

@@ -1,0 +1,12 @@
+<ion-view class="surveysubpage">
+	<ion-content scroll="false" id="mealtype" >
+    What are you in the mood for?
+
+    <div class="row responsive-sm">
+
+      <div class="col"  ng-repeat="button in buttons[0]"><ion-button  ng-click="selectButton(button)" ng-class="{active: button.value}" class="button button-light">{{button.name}}</ion-button></div>
+
+    </div>
+
+	</ion-content>
+</ion-view>

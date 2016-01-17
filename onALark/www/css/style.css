@@ -7,9 +7,40 @@
   src: local('Quicksand Regular'), local('Quicksand-Regular'), url("../fonts/quicksand-regular.woff2") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+#logoimage {
+  width: 55vw;
+  height: auto;
+}
+#surveynav {
+  background: rgba(0,0,0,0) !important;
+}
 .beginbutton {
   font-weight: bold;
   font-size: 80px;
+}
+
+.surveysubpage {
+  background: rgba(0,0,0,0) !important;
+}
+
+.button {
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+
+.button.active {
+  box-shadow: none;
+  border-color: #d1d3d6;
+  background-color: #fafafa;
+}
+
+
+#surveypage {
+  background-image: url("../img/background_survey.png");
+  background-position: center top;
+  background-size: cover;
+  font-family: "Quicksand";
 }
 #swipeviewpage {
   background-image: url("../img/background.png");
