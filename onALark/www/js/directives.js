@@ -1,6 +1,7 @@
 angular.module('starter.directives', [])
 .directive('swipeview', function($timeout) {
   return {
+    template: "	<ul id=\"navdots\"></ul>",
     link: function(scope, element, attrs) {
       var	gallery,
       	el,
@@ -8,60 +9,67 @@ angular.module('starter.directives', [])
       	page,
       	slides = [
       		{
-      			img: 'images/pic01.jpg',
       			width: 300,
       			height: 213,
-      			desc: 'Piazza del Duomo, Florence, Italy'
+      			desc: 'Welcome!'
       		},
-      		{
-      			img: 'images/pic02.jpg',
-      			width: 300,
-      			height: 164,
-      			desc: 'Tuscan Landscape'
-      		},
-      		{
-      			img: 'images/pic03.jpg',
-      			width: 300,
-      			height: 213,
-      			desc: 'Colosseo, Rome, Italy'
-      		},
-      		{
-      			img: 'images/pic04.jpg',
-      			width: 147,
-      			height: 220,
-      			desc: 'Somewhere near Chinatown, San Francisco'
-      		},
-      		{
-      			img: 'images/pic05.jpg',
-      			width: 300,
-      			height: 213,
-      			desc: 'Medieval guard tower, Asciano, Siena, Italy'
-      		},
-      		{
-      			img: 'images/pic06.jpg',
-      			width: 165,
-      			height: 220,
-      			desc: 'Leaning tower, Pisa, Italy'
-      		}
-      	];
-console.log(element);
-      gallery = new SwipeView("#wrapper", { numberOfPages: slides.length });
+          {
+            width: 300,
+            height: 213,
+            desc: '\'On A Lark\' is a location-based food establishment and social discovery application. <br/> Connect with friends, experience different eateries, and try something new on a whim.'
+          },
+          {
+            width: 300,
+            height: 213,
+            desc: '\'On A Lark\' makes the decisions for you. <br/> Based on yur location and preferences, we will match you to a local business'
+          },
+          {
+            width: 300,
+            height: 213,
+            desc: 'Let\'s begin'
+          },
 
+      	];
+      gallery = new SwipeView("#wrapper", { numberOfPages: slides.length});
+      var navdots = document.querySelector("#navdots");
+      for(i=0; i<4; i++) {
+        navdots.appendChild(document.createElement("li"));
+
+      }
       // Load initial data
       for (i=0; i<3; i++) {
       	page = i==0 ? slides.length-1 : i-1;
-      	el = document.createElement('img');
-      	el.className = 'loading';
-      	el.src = slides[page].img;
-      	el.width = slides[page].width;
-      	el.height = slides[page].height;
-      	el.onload = function () { this.className = ''; }
-      	gallery.masterPages[i].appendChild(el);
 
-      	el = document.createElement('span');
-      	el.innerHTML = slides[page].desc;
+      	el = document.createElement('div');
+        el2 = document.createElement('div');
+        el.appendChild(el2);
+      	el2.innerHTML = slides[page].desc;
       	gallery.masterPages[i].appendChild(el)
       }
+      navdots.children[0].className = "selected";
+      gallery.onFlip(function () {
+      	var el,
+      		upcoming,
+      		i;
+
+      	for (i=0; i<3; i++) {
+      		upcoming = gallery.masterPages[i].dataset.upcomingPageIndex;
+
+      		if (upcoming != gallery.masterPages[i].dataset.pageIndex) {
+
+
+      			el = gallery.masterPages[i].querySelector('div');
+      			el.innerHTML = "<div>" + slides[upcoming].desc + "</div>";
+      		}
+      	}
+        var prevselect = document.querySelector('.selected');
+        if (prevselect != null) {
+          prevselect.className = '';
+
+        }
+      	document.querySelector("#navdots").children[gallery.pageIndex % 4].className = 'selected';
+      });
+
     }
   };
 });
