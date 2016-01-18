@@ -21,12 +21,12 @@ angular.module('starter.directives', [])
           {
             width: 300,
             height: 213,
-            desc: '\'On A Lark\' makes the decisions for you. <br/> Based on yur location and preferences, we will match you to a local business'
+            desc: '\'On A Lark\' makes the decisions for you. <br/> Based on your location and preferences, we will match you to a local business.'
           },
           {
             width: 300,
             height: 213,
-            desc: 'Let\'s begin <br/><button ui-sref="survey({pageid: 1})" class="beginbutton">&#x203a</button>'
+            desc: 'Let\'s begin <br/><button ui-sref="survey({pageid: 1})" class="beginbutton ion-chevron-right"></button>'
           },
 
       	];
@@ -73,11 +73,26 @@ angular.module('starter.directives', [])
         var beginButton = document.querySelector(".beginbutton");
         if(beginButton) {
           $(beginButton).on("click", function(){
-            $state.go("survey");
+            $state.go("survey.mealtype");
           });
         }
       });
 
     }
   };
-});
+}).directive('distanceslider', function($timeout, $compile, $state) {
+  return {
+    link: function(scope, element, attrs) {
+        $(element).ionRangeSlider({
+            type: "single",
+            min: 1,
+            max: 15,
+            step: 1,
+            grid: true,
+            grid_num: 5,
+            grid_snap: false,
+            postfix: "mi"
+        });
+      }
+    }
+  });

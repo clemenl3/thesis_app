@@ -18,6 +18,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SurveyCtrl', function($scope, $stateParams) {
+  $scope.distance = 1;
   $scope.buttons = [
     [
       {name: "Breakfast", value: false},

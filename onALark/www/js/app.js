@@ -49,7 +49,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url: '/restrictions',
         templateUrl: 'templates/survey-restrictions.html',
         controller: 'SurveyCtrl'
-      })
+      }).state('survey.distance', {
+          url: '/distance',
+          templateUrl: 'templates/survey-distance.html',
+          controller: 'SurveyCtrl'
+        }).state('survey.prompt', {
+            url: '/prompt',
+            templateUrl: 'templates/survey-prompt.html',
+            controller: 'SurveyCtrl'
+          })
 
   // Each tab has its own nav history stack:
 

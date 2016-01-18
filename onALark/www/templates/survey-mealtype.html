@@ -5,8 +5,10 @@
     <div class="row responsive-sm">
 
       <div class="col"  ng-repeat="button in buttons[0]"><ion-button  ng-click="selectButton(button)" ng-class="{active: button.value}" class="button button-light">{{button.name}}</ion-button></div>
+      <button ui-sref="survey.restrictions" class="beginbutton ion-chevron-right"></button>
 
     </div>
+
 
 	</ion-content>
 </ion-view>

@@ -1,6 +1,11 @@
-<ion-view>
-	<ion-content scroll="false" id="surveypage">
+<ion-view class="surveysubpage">
+	<ion-content scroll="false" id="distance" >
+    How far are you willing to travel?
 
+    <div class="row responsive-sm">
+        <input type=text distanceslider ng-model="distance"></input>
+        <button ui-sref="survey.prompt" class="beginbutton ion-chevron-right"></button>
+    </div>
 
 	</ion-content>
 </ion-view>
