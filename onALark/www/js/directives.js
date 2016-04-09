@@ -9,7 +9,7 @@ angular.module('starter.directives', [])
       	page,
       	slides = [
       		{
-      			width: 300,
+            width: 300,
       			height: 213,
       			desc: 'Welcome!'
       		},
@@ -26,7 +26,7 @@ angular.module('starter.directives', [])
           {
             width: 300,
             height: 213,
-            desc: 'Let\'s begin <br/><button ui-sref="survey({pageid: 1})" class="beginbutton ion-chevron-right"></button>'
+            desc: 'Let\'s begin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button ui-sref="survey({pageid: 1})" class="beginbutton ion-chevron-right"></button>'
           },
 
       	];

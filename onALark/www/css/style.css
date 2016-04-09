@@ -10,13 +10,27 @@
 #logoimage {
   width: 40vw;
   height: auto;
+  opacity: 0.6;
+  filter: alpha(opacity=40);
+  padding-bottom: 30px;
 }
+
 #surveynav {
   background: rgba(0,0,0,0) !important;
 }
+
+.head {
+  padding-bottom: 20px;
+}
+
 .beginbutton {
-  font-weight: bold;
-  font-size: 80px;
+  color: #666666;
+  align-self: center;
+  background-color: Transparent;
+  border: none;
+  width:35px;
+  font-size: 40px;
+  margin-top: 2px;
 }
 
 .surveysubpage {
@@ -24,22 +38,33 @@
 }
 
 .button {
+  box-shadow: 5px 5px 10px #888888;
+  font-size: 15px;
+  width: 250px;
   margin-left: 30px;
   margin-right: 30px;
-
+  margin-bottom: -10px;
 }
 
 .button.active {
-  box-shadow: none;
-  border-color: #d1d3d6;
+  border: none;
+  border-style: ridge;
+  border-width: thin;
+  box-shadow: 1px;
+  border-color: #888888;
   background-color: #fafafa;
 }
 
+.list {
+  box-shadow: 5px 5px 10px #888888;
+}
 
 #surveypage {
   background-image: url("../img/background_survey.png");
   background-position: center top;
   background-size: cover;
+  text-align: center;
+  font-size: 18px;
   font-family: "Quicksand";
 }
 #swipeviewpage {
@@ -49,25 +74,26 @@
   font-family: "Quicksand";
 }
 #swipeview-slider div {
+  object-fit: contain;
   display: table-cell;
   vertical-align: middle;
-  margin-left: 30px;
+  margin-left: 40px;
   margin-right: 30px;
   overflow-x: none;
-  max-width: 90vw;
+  max-width: 80vw;
 }
 
 #swipeview-slider > div {
   vertical-align: middle;
   display: table;
-	position:absolute;
+	position: absolute;
 	top:0;
-	left:0;
+	left: inherit;
 	width:100%;
 	padding:20px 0;
   height: 70vh;
-	font-size:20px;
-	text-shadow:0 1px 0 #000;
+	font-size:21px;
+	text-shadow:0 0px 0 #000;
 	border-top:1px solid rgba(255,255,255,0.2);
 	-webkit-border-top-left-radius:10px;
 	-moz-border-top-left-radius:10px;

@@ -1,10 +1,10 @@
 <ion-view class="surveysubpage">
 	<ion-content scroll="false" id="mealtype" >
-    What are you in the mood for?
+    <div class="head"> What are you in the mood for? </div>
 
     <div class="row responsive-sm">
 
-      <div class="col"  ng-repeat="button in buttons[0]"><ion-button  ng-click="selectButton(button)" ng-class="{active: button.value}" class="button button-light">{{button.name}}</ion-button></div>
+      <div class="col"  ng-repeat="button in buttons[0]"><ion-button  ng-click="selectButton(button)" ng-class="{active: button.value}" class="button button-small">{{button.name}}</ion-button></div>
       <button nav-transition="none" ui-sref="survey.restrictions" class="beginbutton ion-chevron-right"></button>
 
     </div>

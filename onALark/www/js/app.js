@@ -57,6 +57,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
             url: '/prompt',
             templateUrl: 'templates/survey-prompt.html',
             controller: 'SurveyCtrl'
+          }).state('survey.viewmatch',{
+            url:'/viewmatch',
+            templateUrl: 'templates/survey-viewmatch.html',
+            controler: 'SurveyCtrl'
           })
 
   // Each tab has its own nav history stack:
