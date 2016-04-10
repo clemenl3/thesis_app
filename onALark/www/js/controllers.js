@@ -17,20 +17,26 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('SurveyCtrl', function($scope, $stateParams, $http) {
+.controller('SurveyCtrl', function($scope, $stateParams, $http, $ionicLoading) {
   $scope.$on('$ionicView.loaded', function (viewInfo, state) {
     if(state.stateId=="survey.prompt") {
+
       $scope.randomMatch();
     }
 
     if(state.stateId=="survey.distance") {
+      $ionicLoading.show({
+        template: "<ion-spinner icon=\"crescent\"></ion-spinner>"
+      })
       navigator.geolocation.getCurrentPosition(function(response) {
         console.log(response);
         $scope.geolocate(response);
       });
     }
   });
+
   $scope.geolocate=function(response) {
+
     console.log(response);
     $scope.coordinates = response.coords;
     $http({
@@ -43,7 +49,7 @@ angular.module('starter.controllers', [])
 
     }).then(function successCallback(response) {
         $scope.temporary_address = response.data.results[0].formatted_address;
-
+        $ionicLoading.hide();
   });
 }
 $scope.temporary_address = "";
@@ -83,6 +89,7 @@ $scope.temporary_address = "";
 
   $scope.selectButton=function(button){
     button.value = !button.value;
+    console.log($scope.buttons);
     localStorage['survey_buttons'] = JSON.stringify($scope.buttons);
   }
   $scope.distanceChange=function() {
@@ -98,6 +105,10 @@ $scope.temporary_address = "";
       return uuid;
   };
   $scope.randomMatch=function() {
+    $ionicLoading.show({
+      template: "<ion-spinner icon=\"crescent\"></ion-spinner>"
+    })
+    $scope.buttons = JSON.parse(localStorage['survey_buttons']);
     terms = "food";
     for(var i = 0; i < $scope.buttons[0].length; i++) {
       if($scope.buttons[0][i].value) {
@@ -139,6 +150,7 @@ $scope.temporary_address = "";
 
   $scope.parseBusiness = function(business) {
     console.log(business);
+    $ionicLoading.hide();
     $scope.match.name=business.name;
     $scope.match.menu_link = business.mobile_url;
     $scope.match.gps_coordinates = business.location.coordinate.latitude + "," + business.location.coordinate.longitude;
