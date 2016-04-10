@@ -8,11 +8,11 @@
 		  	<div>
 		    	<p> {{match.name}} </p>
 		    	<p> {{match.address}}</p>
-					<p><a target="_system" ng-href="http://maps.google.com/maps?q={{match.gps_coordinates}}">Map</a></p>
+					<p><a target="_system" ng-href="http://maps.google.com/maps?q={{match.gps_coordinates}}">Get Directions</a></p>
 		  	</div>
 
 		  	<div class="item item-image">
-					<p><a ng-click="window.open('{{match.menu_link}}', '_system')" target="_system" ng-href={{match.menu_link}}> View On Yelp</a> &nbsp <i class="icon ion-android-restaurant"></i> &nbsp <a ng-href={{match.review_link}}> Reviews </a></p>
+					<p><a ng-click="window.open('{{match.menu_link}}', '_system')" target="_system" ng-href={{match.menu_link}}> View On Yelp</a></p>
 				</div>
 
 			</div>

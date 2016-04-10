@@ -11,7 +11,7 @@ angular.module('starter.directives', [])
       		{
             width: 300,
       			height: 213,
-      			desc: 'Welcome!'
+      			desc: '',
       		},
           {
             width: 300,

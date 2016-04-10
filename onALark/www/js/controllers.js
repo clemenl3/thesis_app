@@ -22,17 +22,44 @@ angular.module('starter.controllers', [])
     if(state.stateId=="survey.prompt") {
       $scope.randomMatch();
     }
+
+    if(state.stateId=="survey.distance") {
+      navigator.geolocation.getCurrentPosition(function(response) {
+        console.log(response);
+        $scope.geolocate(response);
+      });
+    }
   });
+  $scope.geolocate=function(response) {
+    console.log(response);
+    $scope.coordinates = response.coords;
+    $http({
+      method:"GET",
+      url: 'http://maps.googleapis.com/maps/api/geocode/json',
+      params: {
+        latlng: $scope.coordinates.latitude + "," + $scope.coordinates.longitude,
+        sensor: true
+      }
+
+    }).then(function successCallback(response) {
+        $scope.temporary_address = response.data.results[0].formatted_address;
+
+  });
+}
+$scope.temporary_address = "";
+  $scope.coordinates = {};
   $scope.match = {
-    name: "Doug Right",
-    address: "Left",
+    name: "name",
+    address: "address",
     gps_coordinates: "0.1,3.1",
     menu_link: "//www.google.com",
     review_link: "//www.google.com",
 
   }
-  $scope.distance = {distance: "12"};
-  $scope.buttons = [
+
+
+  $scope.distance = {distance: "1"};
+  window.buttons = [
     [
       {name: "Breakfast", value: false},
       {name: "Coffee", value: false},
@@ -42,7 +69,7 @@ angular.module('starter.controllers', [])
       {name: "Drinks",value: false}
     ],
     [
-      {name: "Vegitarian",value: false},
+      {name: "Vagetarian",value: false},
       {name: "Vegan",value: false},
       {name: "Gluten-Free",value: false}
     ]
@@ -59,7 +86,6 @@ angular.module('starter.controllers', [])
     localStorage['survey_buttons'] = JSON.stringify($scope.buttons);
   }
   $scope.distanceChange=function() {
-    console.log($scope.distance);
     localStorage['survey_distance'] = JSON.stringify($scope.distance);
   }
   $scope.generateUUID = function() {
@@ -72,15 +98,27 @@ angular.module('starter.controllers', [])
       return uuid;
   };
   $scope.randomMatch=function() {
-
+    terms = "food";
+    for(var i = 0; i < $scope.buttons[0].length; i++) {
+      if($scope.buttons[0][i].value) {
+        terms += "," + $scope.buttons[0][i].name;
+      }
+    }
+    for(var i = 0; i < $scope.buttons[1].length; i++) {
+      if($scope.buttons[1][i].value) {
+        terms += "," + $scope.buttons[1][i].name;
+      }
+    }
     var data = {
            oauth_consumer_key: '22fyEPMy0uDEz3E4x2QQRQ', //Consumer Key
            oauth_token: 'o71MFjO_geUXGESVpNY121zBGflw8BYU', //Token
            oauth_signature_method: "HMAC-SHA1",
            oauth_timestamp: new Date().getTime(),
            oauth_nonce: $scope.generateUUID(),
-           location: 'San+Francisc',
-           term: 'food'
+           location: $scope.temporary_address,
+           radius_filter: $scope.distance.distance * 1609.34,
+           cll: $scope.coordinates.latitude + "," + $scope.coordinates.longitude,
+           term: terms
     }
     var method = 'GET';
     var url = 'https://api.yelp.com/v2/search'
