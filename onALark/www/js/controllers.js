@@ -18,7 +18,11 @@ angular.module('starter.controllers', [])
 })
 
 .controller('SurveyCtrl', function($scope, $stateParams, $http) {
-
+  $scope.$on('$ionicView.loaded', function (viewInfo, state) {
+    if(state.stateId=="survey.prompt") {
+      $scope.randomMatch();
+    }
+  });
   $scope.match = {
     name: "Doug Right",
     address: "Left",
@@ -100,7 +104,7 @@ angular.module('starter.controllers', [])
     $scope.match.name=business.name;
     $scope.match.menu_link = business.mobile_url;
     $scope.match.gps_coordinates = business.location.coordinate.latitude + "," + business.location.coordinate.longitude;
-
+    $scope.match.address = business.location.address[0] + ", " + business.location.city + ", " + business.location.state_code;
   }
 
 });
