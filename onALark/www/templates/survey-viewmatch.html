@@ -6,18 +6,18 @@
 			<div class="list card">
 
 		  	<div>
-		    	<p>Name</p>
-		    	<p>Address</p>
-					<p><a href="http://maps.apple.com/?q=51.507269,-0.127695">Map</a></p>
+		    	<p> {{match.name}} </p>
+		    	<p> {{match.address}}</p>
+					<p><a target="_system" ng-href="http://maps.google.com/maps?q={{match.gps_coordinates}}">Map</a></p>
 		  	</div>
 
 		  	<div class="item item-image">
-					<p><a href="http://www.yelp.com/jersey">View Menu </a> &nbsp <i class="icon ion-android-restaurant"></i> &nbsp <a href="https://www.yelp.com/writeareview"> Reviews </a></p>
+					<p><a ng-click="window.open('{{match.menu_link}}', '_system')" target="_system" ng-href={{match.menu_link}}> View On Yelp</a> &nbsp <i class="icon ion-android-restaurant"></i> &nbsp <a ng-href={{match.review_link}}> Reviews </a></p>
 				</div>
 
 			</div>
 
-					<div class="col"><ion-button nav-transition="none" ui-sref="#" class="button button-small">Find a new match</ion-button></div>
+					<div class="col"><ion-button  ng-click="randomMatch()" class="button button-small">Find a new match</ion-button></div>
 					<div class="col"><ion-button nav-transition="none" ui-sref="survey.mealtype" class="button button-small">Back to survey</ion-button></div>
 
 

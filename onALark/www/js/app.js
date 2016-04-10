@@ -33,7 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   // setup an abstract state for the tabs directive
     .state('intro', {
-    url: '/intro',
+    url: '',
     templateUrl: 'templates/intro.html',
     controller: 'IntroCtrl'
   }).state('survey', {

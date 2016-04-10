@@ -82,6 +82,9 @@ angular.module('starter.directives', [])
   };
 }).directive('distanceslider', function($timeout, $compile, $state) {
   return {
+    scope: {
+    ngModel: '='
+    },
     link: function(scope, element, attrs) {
         $(element).ionRangeSlider({
             type: "single",
@@ -91,7 +94,8 @@ angular.module('starter.directives', [])
             grid: true,
             grid_num: 5,
             grid_snap: false,
-            postfix: "mi"
+            postfix: "mi",
+            from: scope.ngModel
         });
       }
     }
