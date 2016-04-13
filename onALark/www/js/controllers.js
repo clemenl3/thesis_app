@@ -118,6 +118,7 @@ $scope.temporary_address = "";
         terms += "," + $scope.buttons[1][i].name;
       }
     }
+
     var data = {
            oauth_consumer_key: '22fyEPMy0uDEz3E4x2QQRQ', //Consumer Key
            oauth_token: 'o71MFjO_geUXGESVpNY121zBGflw8BYU', //Token
