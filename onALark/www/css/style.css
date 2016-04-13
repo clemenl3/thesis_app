@@ -10,7 +10,7 @@
 #logoimage {
   width: 40vw;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.8;
   filter: alpha(opacity=40);
   padding-bottom: 30px;
 }
@@ -24,7 +24,8 @@
 }
 
 .beginbutton {
-  color: #666666;
+  color: #000;
+  opacity: 0.6;
   align-self: center;
   background-color: Transparent;
   border: none;
@@ -62,6 +63,7 @@
 #surveypage {
   background-image: url("../img/background_survey.png");
   background-position: center top;
+  padding-top: 20px;
   background-size: cover;
   text-align: center;
   font-size: 18px;

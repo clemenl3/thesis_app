@@ -11,7 +11,7 @@ angular.module('starter.directives', [])
       		{
             width: 300,
       			height: 213,
-      			desc: '',
+      			desc: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Welcome!',
       		},
           {
             width: 300,
@@ -26,7 +26,7 @@ angular.module('starter.directives', [])
           {
             width: 300,
             height: 213,
-            desc: 'Let\'s begin &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button ui-sref="survey({pageid: 1})" class="beginbutton ion-chevron-right"></button>'
+            desc: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Let\'s begin &nbsp;&nbsp;&nbsp;&nbsp;<button ui-sref="survey({pageid: 1})" class="beginbutton ion-chevron-right"></button>'
           },
 
       	];

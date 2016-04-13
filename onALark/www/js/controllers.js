@@ -55,14 +55,13 @@ angular.module('starter.controllers', [])
 $scope.temporary_address = "";
   $scope.coordinates = {};
   $scope.match = {
-    name: "name",
-    address: "address",
-    gps_coordinates: "0.1,3.1",
-    menu_link: "//www.google.com",
-    review_link: "//www.google.com",
+    name: "No Matches",
+    address: "(find new match or back to survey)",
+    gps_coordinates: "",
+    menu_link: "",
+    review_link: "",
 
   }
-
 
   $scope.distance = {distance: "1"};
   window.buttons = [
@@ -72,7 +71,7 @@ $scope.temporary_address = "";
       {name: "Lunch",value: false},
       {name: "Fast Food",value: false},
       {name: "Dinner",value: false},
-      {name: "Drinks",value: false}
+      {name: "Bars",value: false}
     ],
     [
       {name: "Vagetarian",value: false},
