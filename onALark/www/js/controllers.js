@@ -140,7 +140,8 @@ $scope.temporary_address = "";
       params: data
 
     }).then(function successCallback(response) {
-        $scope.parseBusiness(response.data.businesses[0]);
+        $scope.parseBusiness(response.data.businesses[Math.floor(Math.random()*response.data.businesses.length)
+]);
       }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
