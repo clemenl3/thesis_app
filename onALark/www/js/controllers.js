@@ -39,6 +39,8 @@ angular.module('starter.controllers', [])
 
     console.log(response);
     $scope.coordinates = response.coords;
+    localStorage['coords'] = JSON.stringify(response.coords);
+
     $http({
       method:"GET",
       url: 'http://maps.googleapis.com/maps/api/geocode/json',
@@ -125,9 +127,10 @@ $scope.temporary_address = "";
            oauth_signature_method: "HMAC-SHA1",
            oauth_timestamp: new Date().getTime(),
            oauth_nonce: $scope.generateUUID(),
-           location: $scope.temporary_address,
+           location: "2000 Pennington Rd, Ewing Township, NJ 08628",
            radius_filter: $scope.distance.distance * 1609.34,
-           cll: $scope.coordinates.latitude + "," + $scope.coordinates.longitude,
+
+           cll: 40.2688 + "," + 74.7809,
            term: terms
     }
     var method = 'GET';
@@ -143,6 +146,7 @@ $scope.temporary_address = "";
         $scope.parseBusiness(response.data.businesses[Math.floor(Math.random()*response.data.businesses.length)
 ]);
       }, function errorCallback(response) {
+        console.log(response);
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });
