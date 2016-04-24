@@ -64,7 +64,7 @@ $scope.temporary_address = "";
   }
 
   $scope.distance = {distance: "1"};
-  window.buttons = [
+  $scope.buttons = [
     [
       {name: "Breakfast", value: false},
       {name: "Coffee", value: false},
@@ -74,7 +74,7 @@ $scope.temporary_address = "";
       {name: "Bars",value: false}
     ],
     [
-      {name: "Vagetarian",value: false},
+      {name: "Vegetarian",value: false},
       {name: "Vegan",value: false},
       {name: "Gluten-Free",value: false}
     ]

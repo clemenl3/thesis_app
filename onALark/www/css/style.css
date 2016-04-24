@@ -1,7 +1,7 @@
 /* Empty. Add your own CSS if you like */
 .scroll{height: 100%;}
 @font-face {
-  font-family: 'Quicksand';
+  font-family: "Quicksand";
   font-style: normal;
   font-weight: 400;
   src: local('Quicksand-Regular'), url("../quicksand-regular.ttf") format('truetype');
@@ -62,7 +62,8 @@
 }
 
 #surveypage {
-  background-image: url("../img/background_survey.png");
+  opacity: 0.9;
+  background-image: url("../img/coffee.png");
   background-position: center top;
   padding-top: 20px;
   background-size: cover;
@@ -71,7 +72,7 @@
   font-family: "Quicksand";
 }
 #swipeviewpage {
-  background-image: url("../img/background.png");
+  background-image: url("../img/coffee.png");
   background-position: center top;
   background-size: cover;
   font-family: "Quicksand";
